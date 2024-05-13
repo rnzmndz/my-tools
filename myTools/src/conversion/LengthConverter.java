@@ -1,8 +1,12 @@
 package conversion;  
 
-public class LengthConverter implements Converter{
-	public String[] units = {"meter", "kilometer", "centimeter", "millimeter", "micrometer", "nanometer", "inch", "foot", "yard", "miles", "nautical_miles"};
+public class LengthConverter extends Converter{
 
+	public LengthConverter() {
+		super();
+		units = new String[]{"meter", "kilometer", "centimeter", "millimeter", "micrometer", "nanometer", "inch", "foot", "yard", "miles", "nautical_miles"};
+	}
+	@Override
 	public double convert(double value, String fromUnit, String toUnit) {
         double fromMeters = toMeters(value, fromUnit);
         return fromMeters / toMeters(1, toUnit);

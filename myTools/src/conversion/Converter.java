@@ -1,8 +1,7 @@
 package conversion;
 
-public interface Converter {
-	String[] units;
+public class Converter {
+	public String[] units;
 	
-	double convert(double value, String fromUnit, String toUnit) {	
-	}
+	public double convert(double value, String fromUnit, String toUnit);
 }

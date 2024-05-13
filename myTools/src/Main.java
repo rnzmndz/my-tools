@@ -3,31 +3,34 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
+	Converter converter;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Converter unit = null;
         
-        System.out.print("1. Length\nSelect unit to convert:");
+        System.out.print("UNITS:"
+        		+ "\n1. Length"
+        		+ "\n2. Head"
+        		+ "\nSelect unit to convert:");
         converterSelector(scanner.nextInt());
-
+        
         System.out.print("Enter value: ");
         double value = scanner.nextDouble();
 
-        System.out.print("Enter unit to convert (METER, KILOMETER, CENTIMETER, INCH, FOOT): ");
+        System.out.print("Enter unit to convert " + Arrays.toString(unit.units).toUpperCase() + ": ");
         String fromUnit = scanner.next().toUpperCase();
 
-        System.out.print("Enter target unit (METER, KILOMETER, CENTIMETER, INCH, FOOT): ");
+        System.out.print("Enter target unit "+ Arrays.toString(unit.units).toUpperCase() +": ");
         String toUnit = scanner.next().toUpperCase();
 
         double result = unit.convert(value, fromUnit, toUnit);
         System.out.println("Result: " + result + " " + toUnit);
     }
     
-    public static void converterSelector(int num) {
+    public static Converter converterSelector(int num) {
     	switch (num) {
 		case 1: {
-			LengthConverter unit = new LengthConverter();
+			return Converter unit = new LengthConverter();
 			break;
 		}
 		default:
