@@ -1,10 +1,13 @@
-import formula.HazenWilliamsFormula;
+import formula.PumpSize;
 
 public class Test {
 
 	public static void main(String[] args) {
-	var obj = new HazenWilliamsFormula(0, 18, 12, , 0, null)
-
+	var obj = new PumpSize(750, 72, 1);
+	System.out.println(obj.getMotorSize());
+	obj.setPumpEfficiency(.80);;
+	System.out.println(obj.getMotorSize());
+	
 	}
 
 }

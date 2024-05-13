@@ -8,27 +8,16 @@ public class HazenWilliamsFormula {
 //	Length in pipe (feet)
 	private double pipeLength;
 //	Coefficient factor of pipe (from NFPA-13 Table)
-	private short pipeCoefficient;
+	private int pipeCoefficient;
 //	Diameter of pipe (inches)
-	private float pipeDiameter;
-//	Choose what to find
-	private String missing;
-	public HazenWilliamsFormula(double totalFrictionloss, double totalFlow, double pipeLength, short pipeCoefficient = 120, float pipeDiameter, String missing) {
-		this.totalFrictionloss = totalFrictionloss;
+	private double pipeDiameter;
+
+	public HazenWilliamsFormula(double totalFlow, double pipeLength, int pipeCoefficient, double pipeDiameter) {
 		this.totalFlow = totalFlow;
 		this.pipeLength = pipeLength;
 		this.pipeCoefficient = pipeCoefficient;
 		this.pipeDiameter = pipeDiameter;
-		this.missing = missing;
-		
-		switch (this.missing) {
-		case "TFL": {
-			this.totalFrictionloss = (4.52*Math.pow(this.totalFlow, 1.85)*this.pipeLength)/
-									(Math.pow(this.pipeCoefficient, 1.85)*Math.pow(this.pipeDiameter, 1.85));
-		}
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + this.missing);
-		}
+		calculateTotalFrictionLoss();
 	}
 	
 	public double getTotalFrictionLoss() {
@@ -43,12 +32,17 @@ public class HazenWilliamsFormula {
 		return pipeLength;
 	}
 	
-	public short getPipeCoefficient() {
+	public int getPipeCoefficient() {
 		return pipeCoefficient;
 	}
 	
-	public float getPipeDiameter() {
+	public double getPipeDiameter() {
 		return pipeDiameter;
+	}
+	
+	public void calculateTotalFrictionLoss() {
+		this.totalFrictionloss = (4.52*Math.pow(this.totalFlow, 1.85)*this.pipeLength)/
+				(Math.pow(this.pipeCoefficient, 1.85)*Math.pow(this.pipeDiameter, 4.87));
 	}
 
 }
