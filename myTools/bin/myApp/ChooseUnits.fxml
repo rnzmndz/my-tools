@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myApp.chooseUnitsController">
+   <children>
+      <Label alignment="CENTER" layoutX="223.0" layoutY="14.0" text="CONVERSION" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="533.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchMain" text="TOOLS" />
+      <Button layoutX="32.0" layoutY="75.0" mnemonicParsing="false" onAction="#switchLength" text="LENGTH" />
+   </children>
+</Pane>
