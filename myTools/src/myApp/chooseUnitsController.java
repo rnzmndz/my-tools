@@ -19,6 +19,7 @@ public class chooseUnitsController implements BaseController{
 	private void switchLength(ActionEvent event) {
 		String[] units = {"meter", "kilometer", "centimeter", "millimeter", "micrometer", "nanometer", "inch", "foot", "yard", "miles", "nautical_miles"};
 		ConvertController.setComboBoxContent(units);
+		ConvertController.changeLabel("Length");
 		main.showScene("Convert.fxml", "Length", ConvertController.class);
 	}
 }

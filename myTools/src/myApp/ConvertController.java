@@ -3,6 +3,7 @@ package myApp;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import conversion.LengthConverter;
 import javafx.event.ActionEvent;
 
 public class ConvertController implements BaseController, Initializable{
-	static List<String> comboBoxContents = new ArrayList<String>();
+	private static List<String> comboBoxContents = new ArrayList<String>();
 	private Main main;
 	
 	@FXML
@@ -28,6 +29,10 @@ public class ConvertController implements BaseController, Initializable{
 	
 	@FXML
 	TextField textField2;
+	
+	@FXML
+	static
+	Label labelConvert;
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -66,13 +71,25 @@ public class ConvertController implements BaseController, Initializable{
 		Collections.addAll(comboBoxContents, content);
 	}
 	
+	public static void changeLabel(String name) {
+		labelConvert.setText(name);
+	}
+	
 	@FXML
 	public void calculateTextField1() {
 		double textFieldValue1 = Double.parseDouble(textField1.getText());
 		String unitToConvert = comboBoxUnits1.getValue();
 		String unitResult = comboBoxUnits2.getValue();
 		double convert = new LengthConverter().convert(textFieldValue1, unitToConvert.toUpperCase(), unitResult.toUpperCase());
-		System.out.println(convert);
-//		textField2.setPromptText(convert);
+		textField2.setText(Double.toString(convert));
+	}
+	
+	@FXML
+	public void calculateTextField2() {
+		double textFieldValue2 = Double.parseDouble(textField2.getText());
+		String unitToConvert = comboBoxUnits2.getValue();
+		String unitResult = comboBoxUnits1.getValue();
+		double convert = new LengthConverter().convert(textFieldValue2, unitToConvert.toUpperCase(), unitResult.toUpperCase());
+		textField1.setText(Double.toString(convert));
 	}
 }
