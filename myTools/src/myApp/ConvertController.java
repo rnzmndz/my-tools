@@ -11,37 +11,39 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import conversion.LengthConverter;
+import conversion.Converter;
 import javafx.event.ActionEvent;
 
 public class ConvertController implements BaseController, Initializable{
 	private static List<String> comboBoxContents = new ArrayList<String>();
 	private Main main;
+	private static String labelname;
+	private static Converter unitConverter;
 	
 	@FXML
-	ComboBox<String> comboBoxUnits1;
+	private ComboBox<String> comboBoxUnits1;
 	
 	@FXML
-	ComboBox<String> comboBoxUnits2;
+	private ComboBox<String> comboBoxUnits2;
 	
 	@FXML
-	TextField textField1;
+	private TextField textField1;
 	
 	@FXML
-	TextField textField2;
+	private TextField textField2;
 	
 	@FXML
-	static
-	Label labelConvert;
+	private Label labelConvert;
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		comboBoxUnits1.getItems().addAll("Initial Item 1", "Initial Item 2", "Initial Item 3");
-		comboBoxUnits2.getItems().addAll("Initial Item 1", "Initial Item 2", "Initial Item 3");
+		comboBoxUnits1.setValue(comboBoxContents.get(0));
+		comboBoxUnits2.setValue(comboBoxContents.get(0));
 	}
 	
 	public void setMain(Main main) {
 		this.main = main;
+		labelConvert.setText(labelname);
 	}
 	
 	@FXML
@@ -72,24 +74,51 @@ public class ConvertController implements BaseController, Initializable{
 	}
 	
 	public static void changeLabel(String name) {
-		labelConvert.setText(name);
+		labelname = name;
 	}
 	
 	@FXML
 	public void calculateTextField1() {
-		double textFieldValue1 = Double.parseDouble(textField1.getText());
-		String unitToConvert = comboBoxUnits1.getValue();
-		String unitResult = comboBoxUnits2.getValue();
-		double convert = new LengthConverter().convert(textFieldValue1, unitToConvert.toUpperCase(), unitResult.toUpperCase());
-		textField2.setText(Double.toString(convert));
-	}
+		 try {
+	            validateInputs(textField1);
+	            double textFieldValue1 = Double.parseDouble(textField1.getText());
+	            String unitToConvert = comboBoxUnits1.getValue();
+	            String unitResult = comboBoxUnits2.getValue();
+	            double convert = unitConverter.convert(textFieldValue1, unitToConvert, unitResult);
+	            textField2.setText(Double.toString(convert));
+	        } catch (IllegalArgumentException e) {
+	            textField2.setText("Select Units");
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            textField2.setText("Error occurred");
+	        }
+	    }
 	
 	@FXML
 	public void calculateTextField2() {
-		double textFieldValue2 = Double.parseDouble(textField2.getText());
-		String unitToConvert = comboBoxUnits2.getValue();
-		String unitResult = comboBoxUnits1.getValue();
-		double convert = new LengthConverter().convert(textFieldValue2, unitToConvert.toUpperCase(), unitResult.toUpperCase());
-		textField1.setText(Double.toString(convert));
+		try {
+            validateInputs(textField1);
+            double textFieldValue2 = Double.parseDouble(textField2.getText());
+    		String unitToConvert = comboBoxUnits2.getValue();
+    		String unitResult = comboBoxUnits1.getValue();
+    		double convert = unitConverter.convert(textFieldValue2, unitToConvert.toUpperCase(), unitResult.toUpperCase());
+    		textField1.setText(Double.toString(convert));
+        } catch (IllegalArgumentException e) {
+            textField1.setText("Select Units");
+        } catch (Exception e) {
+            e.printStackTrace();
+            textField1.setText("Error occurred");
+        }
+	}
+	
+	public void validateInputs(TextField textField) {
+		if (comboBoxUnits1.getValue() == null || comboBoxUnits1.getValue().isEmpty())
+			throw new IllegalArgumentException("Cb 1 is empty");
+		if (comboBoxUnits2.getValue() == null || comboBoxUnits2.getValue().isEmpty())
+			throw new IllegalArgumentException("Cb 2 is empty");
+	}
+	
+	public static void setUnitConverter(Converter converter) {
+		unitConverter = converter;
 	}
 }

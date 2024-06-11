@@ -14,5 +14,6 @@
       </Label>
       <Button layoutX="533.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchMain" text="TOOLS" />
       <Button layoutX="32.0" layoutY="75.0" mnemonicParsing="false" onAction="#switchLength" text="LENGTH" />
+      <Button layoutX="36.0" layoutY="123.0" mnemonicParsing="false" onAction="#switchHead" text="HEAD" />
    </children>
 </Pane>

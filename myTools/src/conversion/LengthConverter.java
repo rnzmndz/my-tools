@@ -14,27 +14,27 @@ public class LengthConverter extends Converter{
 
     private static double toMeters(double value, String unit) {
         switch (unit) {
-            case "METER":
+            case "meter":
                 return value;
-            case "KILOMETER":
+            case "kilometer":
                 return value * 1000;
-            case "CENTIMETER":
+            case "centimeter":
                 return value / 100;
-            case "MILLIMETER":
+            case "millimeter":
             	return value / 1_000;
-            case "MICROMETER":
+            case "micrometer":
             	return value / 1_000_000;
-            case "NANOMETER":
+            case "nanometer":
             	return value / 1_000_000_000;
-            case "INCH":
+            case "inch":
                 return value * 0.0254;
-            case "FOOT":
+            case "foot":
                 return value * 0.3048;
-            case "YARD":
+            case "yard":
             	return value * 1.093613;
-            case "MILES":
+            case "mile":
             	return value * 0.000621;
-            case "NAUTICAL_MILE":
+            case "nautical_miles":
             	return value * 0.00054;
             default:
                 throw new IllegalArgumentException("Unsupported unit: " + unit);
