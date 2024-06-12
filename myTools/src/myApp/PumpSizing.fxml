@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="222.0" layoutY="14.0" text="PUMP SIZING">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="82.0" text="FLOW RATE">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="118.0" text="HEAD">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="153.0" text="FLUID DENSITY">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="190.0" text="PUMP EFFICIENCY">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="231.0" text="MOTOR EFFICIENCY">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="27.0" layoutY="264.0" text="POWER">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldFlowRate" layoutX="226.0" layoutY="80.0" />
+      <TextField fx:id="textFieldHead" layoutX="225.0" layoutY="116.0" />
+      <TextField fx:id="textFieldFluidDensity" layoutX="225.0" layoutY="151.0" />
+      <TextField fx:id="textFieldMotorEfficiency" layoutX="225.0" layoutY="188.0" />
+      <TextField fx:id="textFieldMotorEfficiency" layoutX="225.0" layoutY="229.0" />
+      <Label layoutX="226.0" layoutY="264.0" text="ANSWER">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboBoxFlowRateUnit" layoutX="378.0" layoutY="80.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboBoxHeadUnit" layoutX="378.0" layoutY="116.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboBoxDensityUnit" layoutX="378.0" layoutY="151.0" prefWidth="150.0" />
+   </children>
+</Pane>
