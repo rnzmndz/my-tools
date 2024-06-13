@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myApp.pumpSizingController">
    <children>
       <Label layoutX="222.0" layoutY="14.0" text="PUMP SIZING">
          <font>
@@ -44,18 +44,19 @@
             <Font name="Arial Bold" size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="textFieldFlowRate" layoutX="226.0" layoutY="80.0" />
-      <TextField fx:id="textFieldHead" layoutX="225.0" layoutY="116.0" />
-      <TextField fx:id="textFieldFluidDensity" layoutX="225.0" layoutY="151.0" />
-      <TextField fx:id="textFieldMotorEfficiency" layoutX="225.0" layoutY="188.0" />
-      <TextField fx:id="textFieldMotorEfficiency" layoutX="225.0" layoutY="229.0" />
-      <Label layoutX="226.0" layoutY="264.0" text="ANSWER">
+      <TextField fx:id="textFieldFlowRate" layoutX="226.0" layoutY="80.0" onKeyReleased="#calculate" />
+      <TextField fx:id="textFieldHead" layoutX="225.0" layoutY="116.0" onKeyReleased="#calculate" />
+      <TextField fx:id="textFieldFluidDensity" layoutX="225.0" layoutY="151.0" onKeyReleased="#calculate" />
+      <TextField fx:id="textFieldPumpEfficiency" layoutX="225.0" layoutY="188.0" onKeyReleased="#calculate" />
+      <TextField fx:id="textFieldMotorEfficiency" layoutX="225.0" layoutY="229.0" onInputMethodTextChanged="#calculate" onKeyReleased="#calculate" />
+      <Label fx:id="labelAnswer" layoutX="226.0" layoutY="264.0" text="ANSWER">
          <font>
             <Font name="Arial Bold" size="17.0" />
          </font>
       </Label>
       <ComboBox fx:id="comboBoxFlowRateUnit" layoutX="378.0" layoutY="80.0" prefWidth="150.0" />
       <ComboBox fx:id="comboBoxHeadUnit" layoutX="378.0" layoutY="116.0" prefWidth="150.0" />
-      <ComboBox fx:id="comboBoxDensityUnit" layoutX="378.0" layoutY="151.0" prefWidth="150.0" />
+      <Button layoutX="65.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchMain" text="TOOLS" />
+      <ComboBox fx:id="comboBoxPowerUnits" layoutX="378.0" layoutY="262.0" prefWidth="150.0" />
    </children>
 </Pane>

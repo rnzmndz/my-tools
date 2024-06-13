@@ -13,6 +13,6 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="43.0" layoutY="106.0" mnemonicParsing="false" text="PUMP SIZING" />
+      <Button layoutX="43.0" layoutY="106.0" mnemonicParsing="false" onAction="#switchPumpSize" text="PUMP SIZING" />
    </children>
 </Pane>

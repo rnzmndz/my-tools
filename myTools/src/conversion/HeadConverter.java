@@ -18,15 +18,15 @@ public class HeadConverter extends Converter{
 		case "psi":
 			return value;
 		case "feet":
-			return value * 2.31;
+			return value * 0.43341651888774657;
 		case "meter":
-			return value *  0.70324961490205;
+			return value *  1.421970206324652;
 		case "bar":
-			return value * 0.0689476;
+			return value * 14.5038;
 		case "pascal":
-			return value * 6894.76;
+			return value * 0.000145038;
 		case "megapascal":
-			return value * 0.00689476;
+			return value / 0.00689476;
 		default:
             throw new IllegalArgumentException("Unsupported unit: " + unit);
 		}

@@ -14,4 +14,9 @@ public class mainController implements BaseController{
 	private void switchConversion(ActionEvent event) {
 		main.showScene("ChooseUnits.fxml", "Conversion", chooseUnitsController.class);
 	}
+	
+	@FXML
+	private void switchPumpSize(ActionEvent event) {
+		main.showScene("PumpSizing.fxml", "Pump Size", chooseUnitsController.class);
+	}
 }

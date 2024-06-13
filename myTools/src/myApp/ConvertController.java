@@ -101,7 +101,7 @@ public class ConvertController implements BaseController, Initializable{
             double textFieldValue2 = Double.parseDouble(textField2.getText());
     		String unitToConvert = comboBoxUnits2.getValue();
     		String unitResult = comboBoxUnits1.getValue();
-    		double convert = unitConverter.convert(textFieldValue2, unitToConvert.toUpperCase(), unitResult.toUpperCase());
+    		double convert = unitConverter.convert(textFieldValue2, unitToConvert, unitResult);
     		textField1.setText(Double.toString(convert));
         } catch (IllegalArgumentException e) {
             textField1.setText("Select Units");
