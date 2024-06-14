@@ -7,12 +7,13 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myApp.mainController">
    <children>
-      <Button alignment="CENTER" layoutX="43.0" layoutY="66.0" mnemonicParsing="false" onAction="#switchConversion" text="CONVERSION" />
+      <Button alignment="CENTER" layoutX="43.0" layoutY="66.0" mnemonicParsing="false" onAction="#switchConversion" prefHeight="25.0" prefWidth="102.0" text="CONVERSION" />
       <Label layoutX="240.0" layoutY="14.0" text="MY TOOLS">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="43.0" layoutY="106.0" mnemonicParsing="false" onAction="#switchPumpSize" text="PUMP SIZING" />
+      <Button layoutX="43.0" layoutY="106.0" mnemonicParsing="false" onAction="#switchPumpSize" prefHeight="25.0" prefWidth="102.0" text="PUMP SIZING" />
+      <Button layoutX="43.0" layoutY="142.0" mnemonicParsing="false" text="FLUID VELOCITY" />
    </children>
 </Pane>

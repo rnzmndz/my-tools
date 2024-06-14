@@ -73,22 +73,32 @@ public class pumpSizingController implements BaseController, Initializable{
 	
 	@FXML
 	private void calculate() {
-		double flowRate = Double.parseDouble(textFieldFlowRate.getText().toString());
-		double convertedFlowRate = flowConvert.convert(flowRate, comboBoxFlowRateUnit.getValue(), "gpm");
-		double head = Double.parseDouble(textFieldHead.getText().toString());
-		double convertedHead = headConvert.convert(head, comboBoxHeadUnit.getValue(), "psi");
-		double fluidDensity = Double.parseDouble(textFieldFluidDensity.getText().toString());
-		double pumpEfficiency = Double.parseDouble(textFieldPumpEfficiency.getText().toString());
-		double motorEfficiency = Double.parseDouble(textFieldMotorEfficiency.getText().toString());
-		
-		PumpSize size = new PumpSize(convertedFlowRate, convertedHead, fluidDensity);
-		double motorSize = size.getMotorSize();
-		double convertedMotorSize = powerConvert.convert(motorSize, comboBoxPowerUnits.getValue(), "hp");
-		size.setMotorEfficiency(motorEfficiency);
-		size.setPumpEfficiency(pumpEfficiency);
-		
-		labelAnswer.setText(Double.toString(Math.round(convertedMotorSize * 100.0)/100.0));
-		
-		System.out.println(comboBoxFlowRateUnit.getValue());
+		try {
+			validateInput();
+			double flowRate = Double.parseDouble(textFieldFlowRate.getText().toString());
+			double convertedFlowRate = flowConvert.convert(flowRate, comboBoxFlowRateUnit.getValue(), "gpm");
+			double head = Double.parseDouble(textFieldHead.getText().toString());
+			double convertedHead = headConvert.convert(head, comboBoxHeadUnit.getValue(), "psi");
+			double fluidDensity = Double.parseDouble(textFieldFluidDensity.getText().toString());
+			double pumpEfficiency = Double.parseDouble(textFieldPumpEfficiency.getText().toString());
+			double motorEfficiency = Double.parseDouble(textFieldMotorEfficiency.getText().toString());
+			
+			PumpSize size = new PumpSize(convertedFlowRate, convertedHead, fluidDensity, pumpEfficiency, motorEfficiency);
+			double motorSize = size.getMotorSize();
+			double convertedMotorSize = powerConvert.convert(motorSize, comboBoxPowerUnits.getValue(), "hp");
+			
+			labelAnswer.setText(Double.toString(Math.round(convertedMotorSize * 100.0)/100.0));
+			
+		} catch (Exception e) {
+			
+		}
 	}
+	
+	private void validateInput() {
+		if (textFieldFlowRate.getText() == null || textFieldFlowRate.getText().isEmpty())
+			throw new IllegalArgumentException();
+		if (textFieldHead.getText() == null || textFieldHead.getText().isEmpty())
+			throw new IllegalArgumentException();
+	}
+	
 }

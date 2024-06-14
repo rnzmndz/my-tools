@@ -54,9 +54,9 @@
             <Font name="Arial Bold" size="17.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboBoxFlowRateUnit" layoutX="378.0" layoutY="80.0" prefWidth="150.0" />
-      <ComboBox fx:id="comboBoxHeadUnit" layoutX="378.0" layoutY="116.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboBoxFlowRateUnit" layoutX="378.0" layoutY="80.0" onAction="#calculate" prefWidth="150.0" />
+      <ComboBox fx:id="comboBoxHeadUnit" layoutX="378.0" layoutY="116.0" onAction="#calculate" prefWidth="150.0" />
       <Button layoutX="65.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchMain" text="TOOLS" />
-      <ComboBox fx:id="comboBoxPowerUnits" layoutX="378.0" layoutY="262.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboBoxPowerUnits" layoutX="378.0" layoutY="262.0" onAction="#calculate" prefWidth="150.0" />
    </children>
 </Pane>

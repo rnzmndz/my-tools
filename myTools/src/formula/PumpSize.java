@@ -14,10 +14,12 @@ public class PumpSize {
 //	Motor Efficiency
 	private double motorEff = 0.9;
 	
-	public PumpSize(double flowrate, double totalDynamicHead, double specificGravity) {
+	public PumpSize(double flowrate, double totalDynamicHead, double specificGravity, double pumpEfficiency, double motorEfficiency) {
 		this.flowrate = flowrate;
 		this.TDH = totalDynamicHead;
 		this.SPGR = specificGravity;
+		this.pumpEff = pumpEfficiency;
+		this.motorEff = motorEfficiency;
 		
 		calculateMotorSize();
 	}
@@ -26,16 +28,7 @@ public class PumpSize {
 		return HP;
 	}
 	
-	public void setPumpEfficiency(double Efficiency) {
-		this.pumpEff = Efficiency;
-		calculateMotorSize();
-	}
-	
-	public void setMotorEfficiency(double Efficiency) {
-		this.motorEff = Efficiency;
-		calculateMotorSize();
-	}
 	public void calculateMotorSize() {
-		this.HP = (this.flowrate*this.TDH*2.31*this.SPGR)/(3960*this.pumpEff*this.motorEff);
+		HP = (this.flowrate*this.TDH*2.31*this.SPGR)/(3960*this.pumpEff*this.motorEff);
 	}
 }
