@@ -19,4 +19,9 @@ public class mainController implements BaseController{
 	private void switchPumpSize(ActionEvent event) {
 		main.showScene("PumpSizing.fxml", "Pump Size", chooseUnitsController.class);
 	}
+	
+	@FXML
+	private void switchFluidVelocity(ActionEvent event) {
+		main.showScene("FluidVelocity.fxml", "Fluid Velocity", chooseUnitsController.class);
+	}
 }

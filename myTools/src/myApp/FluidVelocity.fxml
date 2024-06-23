@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="208.0" layoutY="22.0" text="FLUID VELOCITY">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="127.0" text="FLOW RATE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="163.0" text="DIAMETER">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="73.0" text="SHAPE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboBoxShape" layoutX="115.0" layoutY="71.0" prefWidth="150.0" />
+      <Label layoutX="42.0" layoutY="200.0" text="HEIGHT">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="231.0" text="VELOCITY">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldFlowRate" layoutX="174.0" layoutY="125.0" />
+      <TextField fx:id="textFieldDiameter" layoutX="174.0" layoutY="161.0" />
+      <TextField fx:id="textFieldHeight" layoutX="174.0" layoutY="198.0" />
+      <Label fx:id="textLabelVelocityAnswer" layoutX="174.0" layoutY="231.0" text="ANSWER">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboBoxFlowrateUnit" layoutX="338.0" layoutY="125.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboBoxDiameterUnit" layoutX="338.0" layoutY="161.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboBoxHeightUnit" layoutX="338.0" layoutY="198.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
