@@ -18,7 +18,7 @@
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="42.0" layoutY="163.0" text="DIAMETER">
+      <Label fx:id="labelDiameter" layoutX="42.0" layoutY="163.0" text="DIAMETER">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -29,7 +29,7 @@
          </font>
       </Label>
       <ComboBox fx:id="comboBoxShape" layoutX="115.0" layoutY="71.0" onAction="#chooseShape" onMouseClicked="#chooseShape" prefWidth="150.0" />
-      <Label fx:id="labelHeight" layoutX="42.0" layoutY="200.0" text="HEIGHT">
+      <Label fx:id="labelWidth" layoutX="42.0" layoutY="200.0" text="WIDTH">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
@@ -41,7 +41,7 @@
       </Label>
       <TextField fx:id="textFieldFlowRate" layoutX="174.0" layoutY="125.0" onAction="#calculate" onKeyReleased="#calculate" />
       <TextField fx:id="textFieldDiameter" layoutX="174.0" layoutY="161.0" onAction="#calculate" onKeyReleased="#calculate" />
-      <TextField fx:id="textFieldHeight" layoutX="174.0" layoutY="198.0" onAction="#calculate" onKeyReleased="#calculate" />
+      <TextField fx:id="textFieldWidth" layoutX="174.0" layoutY="198.0" onAction="#calculate" onKeyReleased="#calculate" />
       <Label fx:id="textLabelVelocityAnswer" layoutX="174.0" layoutY="231.0" text="ANSWER">
          <font>
             <Font name="Arial Bold" size="18.0" />
@@ -49,7 +49,7 @@
       </Label>
       <ComboBox fx:id="comboBoxFlowrateUnit" layoutX="338.0" layoutY="125.0" prefWidth="150.0" />
       <ComboBox fx:id="comboBoxDiameterUnit" layoutX="338.0" layoutY="161.0" prefWidth="150.0" />
-      <ComboBox fx:id="comboBoxHeightUnit" layoutX="338.0" layoutY="198.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboBoxWidthUnit" layoutX="338.0" layoutY="198.0" prefWidth="150.0" />
       <ComboBox fx:id="comboBoxVelocityUnit" layoutX="338.0" layoutY="229.0" onAction="#calculate" prefWidth="150.0" />
    </children>
 </AnchorPane>

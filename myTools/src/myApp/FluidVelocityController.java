@@ -33,7 +33,7 @@ public class FluidVelocityController implements BaseController, Initializable{
 	ComboBox<String> comboBoxDiameterUnit;
 	
 	@FXML
-	ComboBox<String> comboBoxHeightUnit;
+	ComboBox<String> comboBoxWidthUnit;
 	
 	@FXML
 	ComboBox<String> comboBoxVelocityUnit;
@@ -45,10 +45,13 @@ public class FluidVelocityController implements BaseController, Initializable{
 	TextField textFieldDiameter;
 	
 	@FXML
-	TextField textFieldHeight;
+	TextField textFieldWidth;
 	
 	@FXML
-	Label labelHeight;
+	Label labelWidth;
+	
+	@FXML
+	Label labelDiameter;
 	
 	@FXML
 	Label textLabelVelocityAnswer;
@@ -61,8 +64,8 @@ public class FluidVelocityController implements BaseController, Initializable{
 		comboBoxFlowrateUnit.setValue("cu. m/sec");
 		comboBoxDiameterUnit.getItems().addAll(lengthConvert.units);
 		comboBoxDiameterUnit.setValue("meter");
-		comboBoxHeightUnit.getItems().addAll(lengthConvert.units);
-		comboBoxHeightUnit.setValue("meter");
+		comboBoxWidthUnit.getItems().addAll(lengthConvert.units);
+		comboBoxWidthUnit.setValue("meter");
 		comboBoxVelocityUnit.getItems().addAll(velocityConvert.units);
 		comboBoxVelocityUnit.setValue("m/s");
 		chooseShape();
@@ -79,15 +82,16 @@ public class FluidVelocityController implements BaseController, Initializable{
 			
 			switch (choice) {
 			case "Circle": {
-				comboBoxHeightUnit.setVisible(false);
-				textFieldHeight.setVisible(false);
-				labelHeight.setVisible(false);
+				comboBoxWidthUnit.setVisible(false);
+				textFieldWidth.setVisible(false);
+				labelWidth.setVisible(false);
 				break;
 			}
 			case "Square": {
-				comboBoxHeightUnit.setVisible(true);
-				textFieldHeight.setVisible(true);
-				labelHeight.setVisible(true);
+				comboBoxWidthUnit.setVisible(true);
+				textFieldWidth.setVisible(true);
+				labelWidth.setVisible(true);
+				labelDiameter.setText("LENGTH");
 				break;
 			}
 			default:
@@ -114,8 +118,8 @@ public class FluidVelocityController implements BaseController, Initializable{
 			}
 			
 			case "Square": {
-				double height = Double.parseDouble(textFieldHeight.getText());
-				double convertedHeight = lengthConvert.convert(height, comboBoxHeightUnit.getValue(), "meter");
+				double height = Double.parseDouble(textFieldWidth.getText());
+				double convertedHeight = lengthConvert.convert(height, comboBoxWidthUnit.getValue(), "meter");
 				FluidVelocity getVelocity = new FluidVelocity(convertedFlowRate, convertedDiameter, convertedHeight, choice);
 				velocity = getVelocity.getVelocity();
 				break;
