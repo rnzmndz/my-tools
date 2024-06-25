@@ -25,11 +25,13 @@ public class FluidVelocity {
 	}
 	
 	public void chooseShape() {
-		switch (shape) {
+		switch (shape.toLowerCase()) {
 		case "square" : 
 			area = side1 * side2;
+			break;
 		case "circle":
 			area = Math.PI*Math.pow(diameter/2, 2);
+			break;
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + shape);
 		}
