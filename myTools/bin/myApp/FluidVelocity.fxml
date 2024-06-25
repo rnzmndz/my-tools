@@ -50,5 +50,6 @@
       <ComboBox fx:id="comboBoxFlowrateUnit" layoutX="338.0" layoutY="125.0" prefWidth="150.0" />
       <ComboBox fx:id="comboBoxDiameterUnit" layoutX="338.0" layoutY="161.0" prefWidth="150.0" />
       <ComboBox fx:id="comboBoxHeightUnit" layoutX="338.0" layoutY="198.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboBoxVelocityUnit" layoutX="338.0" layoutY="229.0" onAction="#calculate" prefWidth="150.0" />
    </children>
 </AnchorPane>

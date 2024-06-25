@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import conversion.LengthConverter;
 import conversion.flowRateConverter;
+import conversion.velocityConverter;
 import formula.FluidVelocity;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,10 +16,11 @@ import javafx.scene.control.TextField;
 public class FluidVelocityController implements BaseController, Initializable{
 	private Main main;
 	private String choice = "Circle";
-	private double velocity;
+	private Double velocity;
 	
 	flowRateConverter flowConvert = new flowRateConverter();
 	LengthConverter lengthConvert = new LengthConverter();
+	velocityConverter velocityConvert = new velocityConverter();
 	
 	
 	@FXML
@@ -32,6 +34,9 @@ public class FluidVelocityController implements BaseController, Initializable{
 	
 	@FXML
 	ComboBox<String> comboBoxHeightUnit;
+	
+	@FXML
+	ComboBox<String> comboBoxVelocityUnit;
 	
 	@FXML
 	TextField textFieldFlowRate;
@@ -58,6 +63,8 @@ public class FluidVelocityController implements BaseController, Initializable{
 		comboBoxDiameterUnit.setValue("meter");
 		comboBoxHeightUnit.getItems().addAll(lengthConvert.units);
 		comboBoxHeightUnit.setValue("meter");
+		comboBoxVelocityUnit.getItems().addAll(velocityConvert.units);
+		comboBoxVelocityUnit.setValue("m/s");
 		chooseShape();
 	}
 	
@@ -98,12 +105,11 @@ public class FluidVelocityController implements BaseController, Initializable{
 			double convertedFlowRate = flowConvert.convert(flowrate, comboBoxFlowrateUnit.getValue(), "cu. m/sec");
 			double diameter = Double.parseDouble(textFieldDiameter.getText());
 			double convertedDiameter = lengthConvert.convert(diameter, comboBoxDiameterUnit.getValue(), "meter");
-			System.out.println(convertedDiameter);
 			
 			switch (choice) {
 			case "Circle": {
 				FluidVelocity getVelocity = new FluidVelocity(convertedFlowRate, convertedDiameter, choice);
-				textLabelVelocityAnswer.setText(Double.toString(getVelocity.getVelocity()));
+				velocity = getVelocity.getVelocity();
 				break;
 			}
 			
@@ -111,13 +117,15 @@ public class FluidVelocityController implements BaseController, Initializable{
 				double height = Double.parseDouble(textFieldHeight.getText());
 				double convertedHeight = lengthConvert.convert(height, comboBoxHeightUnit.getValue(), "meter");
 				FluidVelocity getVelocity = new FluidVelocity(convertedFlowRate, convertedDiameter, convertedHeight, choice);
-				textLabelVelocityAnswer.setText(Double.toString(getVelocity.getVelocity()));
+				velocity = getVelocity.getVelocity();
 				break;
 			}
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + choice);
 			}
 			
+			Double convertedVelocity = velocityConvert.convert(velocity, comboBoxVelocityUnit.getValue(), "m/s");
+			textLabelVelocityAnswer.setText(Double.toString(convertedVelocity));
 		
 		} catch (Exception e) {
 			// TODO: handle exception
