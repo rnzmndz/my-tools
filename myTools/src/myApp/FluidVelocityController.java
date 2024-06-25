@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 public class FluidVelocityController implements BaseController, Initializable{
 	private Main main;
 	private String choice = "Circle";
+	private double velocity;
 	
 	flowRateConverter flowConvert = new flowRateConverter();
 	LengthConverter lengthConvert = new LengthConverter();
@@ -116,6 +117,8 @@ public class FluidVelocityController implements BaseController, Initializable{
 			default:
 				throw new IllegalArgumentException("Unexpected value: " + choice);
 			}
+			
+		
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
