@@ -51,6 +51,7 @@ public class pumpSizingController implements BaseController, Initializable{
 	
 	public void setMain(Main main) {
 		this.main = main;
+		labelAnswer.setVisible(false);
 		textFieldMotorEfficiency.setText("0.9");
 		textFieldPumpEfficiency.setText("0.7");
 		textFieldFluidDensity.setText("1");
@@ -82,6 +83,9 @@ public class pumpSizingController implements BaseController, Initializable{
 			double fluidDensity = Double.parseDouble(textFieldFluidDensity.getText().toString());
 			double pumpEfficiency = Double.parseDouble(textFieldPumpEfficiency.getText().toString());
 			double motorEfficiency = Double.parseDouble(textFieldMotorEfficiency.getText().toString());
+			
+			if (labelAnswer.getText() != "ANSWER")
+				labelAnswer.setVisible(true);
 			
 			PumpSize size = new PumpSize(convertedFlowRate, convertedHead, fluidDensity, pumpEfficiency, motorEfficiency);
 			double motorSize = size.getMotorSize();

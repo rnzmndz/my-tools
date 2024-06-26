@@ -58,6 +58,7 @@ public class FluidVelocityController implements BaseController, Initializable{
 	
 	public void setMain(Main main) {
 		this.main = main;
+		textLabelVelocityAnswer.setVisible(false);
 		comboBoxShape.getItems().addAll("Circle","Square");
 		comboBoxShape.setValue(choice);
 		comboBoxFlowrateUnit.getItems().addAll(flowConvert.units);
@@ -85,6 +86,7 @@ public class FluidVelocityController implements BaseController, Initializable{
 				comboBoxWidthUnit.setVisible(false);
 				textFieldWidth.setVisible(false);
 				labelWidth.setVisible(false);
+				labelDiameter.setText("DIAMETER");
 				break;
 			}
 			case "Square": {
@@ -109,6 +111,9 @@ public class FluidVelocityController implements BaseController, Initializable{
 			double convertedFlowRate = flowConvert.convert(flowrate, comboBoxFlowrateUnit.getValue(), "cu. m/sec");
 			double diameter = Double.parseDouble(textFieldDiameter.getText());
 			double convertedDiameter = lengthConvert.convert(diameter, comboBoxDiameterUnit.getValue(), "meter");
+			
+			if (textLabelVelocityAnswer.getText() != "ANSWER")
+				textLabelVelocityAnswer.setVisible(true);
 			
 			switch (choice) {
 			case "Circle": {
